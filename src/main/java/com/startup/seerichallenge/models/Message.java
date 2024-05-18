@@ -23,13 +23,13 @@ public class Message {
     private Long id;
 
     @Column(name = "conversation_id", nullable = false)
-    private String conversationId;
+    private Long conversationId;
 
     @Column(name = "sender_id", nullable = false)
-    private String senderId;
+    private Long senderId;
 
     @Column(name = "receiver_id", nullable = false)
-    private String receiverId;
+    private Long receiverId;
 
     @Column(name = "message", nullable = false)
     private String message;

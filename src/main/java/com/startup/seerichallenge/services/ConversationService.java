@@ -17,16 +17,17 @@ public class ConversationService {
         this.conversationRepository = conversationRepository;
     }
 
-    public void create(Conversation conversation) {
-        this.conversationRepository.save(conversation);
+    public Conversation create(Conversation conversation) {
+        return this.conversationRepository.save(conversation);
     }
 
-    public void update(Conversation conversation) {
-        this.conversationRepository.save(conversation);
+    public Conversation update(Conversation conversation) {
+        return this.conversationRepository.save(conversation);
     }
 
-    public void delete(Long conversationId) {
+    public Long delete(Long conversationId) {
         this.conversationRepository.deleteById(conversationId);
+        return conversationId;
     }
 
     public List<Conversation> getConversationHistory() {
@@ -37,7 +38,7 @@ public class ConversationService {
         return this.conversationRepository.findById(conversationId);
     }
 
-    List<Conversation> searchByEmail(String conversationType) {
+    public List<Conversation> searchByConversationType(String conversationType) {
         return this.conversationRepository.findByConversationType(conversationType);
     }
 }

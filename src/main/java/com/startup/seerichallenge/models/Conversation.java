@@ -22,8 +22,8 @@ public class Conversation {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "type", nullable = false)
-    private String type;
+    @Column(name = "conversation_type", nullable = false)
+    private String conversationType;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

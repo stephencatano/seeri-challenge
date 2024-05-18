@@ -20,21 +20,21 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Long id;
+    public Long id;
 
     @Column(name = "user_name", nullable = false)
-    private String userName;
+    public String userName;
 
-    @Column(name = "user_email", nullable = false)
-    private String userEmail;
+    @Column(unique = true, name = "user_email", nullable = false)
+    public String userEmail;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at")
-    private Date createdAt;
+    public Date createdAt;
 
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at")
-    private Date updatedAt;
+    public Date updatedAt;
 }

@@ -17,16 +17,17 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public void create(User user) {
-        this.userRepository.save(user);
+    public User create(User user) {
+        return this.userRepository.save(user);
     }
 
-    public void update(User user) {
-        this.userRepository.save(user);
+    public User update(User user) {
+        return this.userRepository.save(user);
     }
 
-    public void delete(Long userId) {
+    public Long delete(Long userId) {
         this.userRepository.deleteById(userId);
+        return userId;
     }
 
     public List<User> getUserList() {
@@ -37,7 +38,7 @@ public class UserService {
         return this.userRepository.findById(userId);
     }
 
-    List<User> searchByEmail(String userEmail) {
-        return this.userRepository.findByEmail(userEmail);
+    public Optional<User> searchByEmail(String userEmail) {
+        return this.userRepository.findByUserEmail(userEmail);
     }
 }

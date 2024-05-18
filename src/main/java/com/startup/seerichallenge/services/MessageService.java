@@ -17,16 +17,17 @@ public class MessageService {
         this.messageRepository = messageRepository;
     }
 
-    public void create(Message message) {
-        this.messageRepository.save(message);
+    public Message create(Message message) {
+        return this.messageRepository.save(message);
     }
 
-    public void update(Message message) {
-        this.messageRepository.save(message);
+    public Message update(Message message) {
+        return this.messageRepository.save(message);
     }
 
-    private void delete(Long messageId) {
+    public Long delete(Long messageId) {
         this.messageRepository.deleteById(messageId);
+        return messageId;
     }
 
     public List<Message> getMessageHistory() {
@@ -37,15 +38,15 @@ public class MessageService {
         return this.messageRepository.findById(messageId);
     }
 
-    List<Message> searchByConversationId(Long conversationId) {
+    public List<Message> searchByConversationId(Long conversationId) {
         return this.messageRepository.findByConversationId(conversationId);
     }
 
-    List<Message> searchBySenderId(Long senderId) {
+    public List<Message> searchBySenderId(Long senderId) {
         return this.messageRepository.findBySenderId(senderId);
     }
 
-    List<Message> searchByReceiverId(Long receiverId) {
+    public List<Message> searchByReceiverId(Long receiverId) {
         return this.messageRepository.findByReceiverId(receiverId);
     }
 }
